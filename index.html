@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evolución de la IA: desde sus orígenes a la actualidad</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<nav id="nav" class="nav" hidden></nav>
+
+<!-- HOME (Figma: "Home Corrección") -->
+<section id="home" class="screen active">
+  <h1 class="titulo"><span class="y">Evolución</span> de la <span class="y">IA</span>: desde sus orígenes a la actualidad</h1>
+  <p class="sub">¿Qué te gustaría explorar primero?</p>
+  <div class="opciones">
+    <button class="opcion" data-go="ajedrez-intro"><span class="ico caballo">♞</span><span>¿Cuándo nos empezó a ganar la IA?</span></button>
+    <div class="linea"></div>
+    <button class="opcion" data-go="nobby"><span class="ico burbuja"></span><span>¿Cuándo empezó la IA a entendernos?</span></button>
+  </div>
+</section>
+
+<!-- NOBBY: ¿Cuándo empezó la IA a entendernos? (pantallas del zip InfografiaTaller) -->
+<section id="nobby" class="screen">
+  <header class="nb-top"><button class="nb-back" id="nb-back" title="Volver">←</button><img src="assets/nobby/logo.png" alt=""><b>Nobby</b></header>
+  <div class="nb-body" id="nb-body"></div>
+</section>
+
+<!-- AJEDREZ: intro (Figma: Ajedrez 18) -->
+<section id="ajedrez-intro" class="screen">
+  <h1 class="titulo grande">¿Cuándo nos empezó a <span class="y">ganar</span> la IA?</h1>
+  <p class="sub">Descubramoslo juntos</p>
+  <div class="scroll-hint"><span>Scroll</span><i class="mouse"></i><b>↓</b></div>
+</section>
+
+<!-- CAPÍTULO 1914 (Figma: Ajedrez 19–26) -->
+<section id="cap-1914" class="screen capitulo">
+  <header class="cap-head">
+    <h2><span class="y">1914</span> “El Ajedrecista”</h2>
+    <p>La máquina no requería intervención humana, detectaba y ejecutaba jugadas concretas. <b class="y">Seguía comandos</b></p>
+  </header>
+  <div class="pasos" id="pasos-1914">
+    <article class="paso" data-paso="1"><h3>1)</h3><div class="tablero"></div><small>Colocación de la pieza</small></article>
+    <article class="paso" data-paso="2"><h3>2)</h3><div class="tablero"></div><small>Detección de la pieza</small></article>
+    <article class="paso" data-paso="3"><h3>3)</h3><div class="tablero"></div><small>Ejecución de Jaque Mate</small></article>
+  </div>
+</section>
+
+<!-- CAPÍTULO 1997 (Figma: Ajedrez 27–35, 76) -->
+<section id="cap-1997" class="screen capitulo">
+  <header class="cap-head">
+    <h2><span class="y">1997</span> “DeepBlue vs Kasparov”</h2>
+    <p>Primera victoria de una máquina contra un campeón mundial. Deep Blue ganó 3,5–2,5. Destacaba su <b class="y">capacidad de Cálculo</b></p>
+  </header>
+  <div class="cap-body">
+    <figure class="foto"><img src="assets/kasparov.jpg" alt="Kasparov vs Deep Blue">
+      <div class="marcador"><span class="y">Deep Blue</span><div class="prog"><i style="width:58%"></i></div><small>Gana con 3,5</small>
+        <div class="partidas"><b class="p0">✕</b><b class="p1">✓</b><b>½</b><b>½</b><b>½</b><b class="p1">✓</b></div></div></figure>
+    <div class="juego">
+      <p class="lbl y" id="j97-lbl">Fragmento de Ronda 6</p>
+      <p id="j97-txt">Elegí tu jugada:</p>
+      <div class="btns" id="j97-btns"><button>Atacar</button><button>Avanzar</button><button>Retroceder</button></div>
+      <div id="j97-plan"></div>
+      <div class="ajedrez" id="tab97"></div>
+      <p id="j97-res" class="res"></p>
+    </div>
+  </div>
+</section>
+
+<!-- CAPÍTULO 2016 (Figma: Ajedrez 36–47) -->
+<section id="cap-2016" class="screen capitulo">
+  <header class="cap-head">
+    <h2><span class="y">2016</span> “AlphaGo vs Lee Sedol”</h2>
+    <p>Una IA usa la “intuición” basada en <b class="y">búsqueda</b> de redes y reglas para ganarle a un profesional de Go.</p>
+  </header>
+  <div class="cap-body">
+    <figure class="foto"><img src="assets/leesedol.jpg" alt="AlphaGo vs Lee Sedol">
+      <figcaption class="y">Posiciones posibles de cada juego</figcaption>
+      <div class="pos"><span>Go</span> 10 × ●●●●●●●● <sup>170</sup></div>
+      <div class="pos"><span>Ajedrez</span> 10 × ♟ <sup>44</sup></div>
+    </figure>
+    <div class="go-wrap">
+      <div class="tabs-go" id="go-tabs"><button class="on" data-t="0">AlphaGo</button><button data-t="1">Probabilidad</button><button data-t="2">Jugada</button></div>
+      <div class="juego">
+        <div id="go-p0" class="juego">
+          <p class="lbl y" id="go-lbl">Colocá una pieza ●</p>
+          <div class="go" id="go"></div>
+          <button class="reiniciar" id="go-reset">Reiniciar</button>
+        </div>
+        <div id="go-p1" class="juego" hidden>
+          <p class="lbl y" id="go-t1">Probabilidad de las jugadas</p>
+          <small class="y">(Jugada 37 en el torneo)</small>
+          <div class="dots" id="go-dots"></div>
+          <p class="res" id="go-t2">1/10.000 jugadas humanas</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- JEOPARDY 2011 (Figma: Jeopardy, -1..-4) -->
+<section id="jeopardy" class="screen capitulo">
+  <header class="cap-head"><h2><span class="y">2011</span><br>Fuera del tablero</h2></header>
+  <div class="cap-body">
+    <div class="jp-izq"><p id="jp-txt"></p><div class="concursantes" id="jp-conc"></div></div>
+    <div class="jp-tab" id="jp-tab"></div>
+  </div>
+</section>
+
+<!-- 2017 LIBRATUS (Figma: Ajedrez 48–58) -->
+<section id="cap-2017" class="screen capitulo">
+  <header class="cap-head"><h2><span class="y">2017</span> “Libratus”</h2>
+    <p>La IA superó a 4 jugadores profesionales de Poker, un juego conocido por tener <b class="y">información oculta</b>. La IA <b>aprendió</b> de ellos</p></header>
+  <div class="cap-body">
+    <div class="juego"><div class="dorso"></div><p id="lib-txt"></p><div class="cartas" id="lib-cartas"></div><p class="y" id="lib-fin"></p></div>
+    <div class="juego"><p class="y">Apuestas en el torneo</p><div class="barras" id="lib-barras"></div><div class="linea-t" id="lib-linea"></div></div>
+  </div>
+</section>
+
+<!-- 2018 OPENAI FIVE (Figma: Ajedrez 59–73) -->
+<section id="cap-2018" class="screen capitulo">
+  <header class="cap-head"><h2><span class="y">2018</span> “OpenIA Five”</h2>
+    <p>La IA controlaba los 5 personajes diferentes mediante una <b class="y">red neuronal</b>, venciendo a un equipo profesional con su capacidad de <b class="y">aprender</b> jugando contra sí mismo</p></header>
+  <div class="cap-body">
+    <figure class="foto"><img src="assets/openai.jpg" alt="OpenAI Five"><figcaption class="y">La IA Controlaba a 5 personajes a la vez</figcaption>
+      <div class="equipos"><span class="cerebro">🧠</span><div class="eq"><span>👤🏹</span><span>👤💔</span><span>👤🛡</span><span>👤🗡</span><span>👤🧙</span></div><b class="y">VS</b><div class="eq"><span>👤🏹</span><span>👤💔</span><span>👤🛡</span><span>👤🗡</span><span>👤🧙</span></div></div></figure>
+    <div class="juego"><p class="y">Cantidad de Partidas jugadas</p><div class="barras" id="oa-graf"></div><div class="linea-t" id="oa-linea"></div></div>
+  </div>
+</section>
+
+<!-- RESUMEN (Figma: Ajedrez 17, 74, 75) -->
+<section id="resumen" class="screen capitulo">
+  <header class="cap-head"><h2>Eran todas iguales? <span class="mini">“El resumen”</span></h2></header>
+  <div class="tabs" id="res-tabs"><button data-k="calculo">Cálculo</button><button data-k="aprendizaje">Aprendizaje</button><button data-k="busqueda">Búsqueda</button></div>
+  <div class="barras grande" id="res-barras"></div>
+</section>
+
+<script src="js/app.js"></script>
+</body>
+</html>
