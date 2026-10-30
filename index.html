@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evolución de la IA: desde sus orígenes a la actualidad</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<nav id="nav" class="nav" hidden></nav>
+
+<!-- HOME (Figma: "Home Corrección") -->
+<section id="home" class="screen active">
+  <h1 class="titulo"><span class="y">Evolución</span> de la <span class="y">IA</span>: desde sus orígenes a la actualidad</h1>
+  <p class="sub">¿Qué te gustaría explorar primero?</p>
+  <div class="opciones">
+    <button class="opcion" data-go="ajedrez-intro"><span class="ico caballo">♞</span><span>¿Cuándo nos empezó a ganar la IA?</span></button>
+    <div class="linea"></div>
+    <button class="opcion" data-go="n-intro"><span class="ico burbuja"></span><span>¿Cuándo empezó la IA a entendernos?</span></button>
+  </div>
+</section>
+
+<!-- AJEDREZ: intro (Figma: Ajedrez 18) -->
+<section id="ajedrez-intro" class="screen">
+  <h1 class="titulo grande">¿Cuándo nos empezó a <span class="y">ganar</span> la IA?</h1>
+  <p class="sub">Descubramoslo juntos</p>
+  <div class="scroll-hint"><span>Scroll</span><i class="mouse"></i><b>↓</b></div>
+</section>
+
+<!-- CAPÍTULO 1914 (Figma: Ajedrez 19–26) -->
+<section id="cap-1914" class="screen capitulo">
+  <header class="cap-head">
+    <h2><span class="y">1914</span> “El Ajedrecista”</h2>
+    <p>La máquina no requería intervención humana, detectaba y ejecutaba jugadas concretas. <b class="y">Seguía comandos</b></p>
+  </header>
+  <div class="pasos" id="pasos-1914">
+    <article class="paso" data-paso="1"><h3>1)</h3><div class="tablero"></div><small>Colocación de la pieza</small></article>
+    <article class="paso" data-paso="2"><h3>2)</h3><div class="tablero"></div><small>Detección de la pieza</small></article>
+    <article class="paso" data-paso="3"><h3>3)</h3><div class="tablero"></div><small>Ejecución de Jaque Mate</small></article>
+  </div>
+</section>
+
+<!-- CAPÍTULO 1997 (Figma: Ajedrez 27–35, 76) -->
+<section id="cap-1997" class="screen capitulo">
+  <header class="cap-head">
+    <h2><span class="y">1997</span> “DeepBlue vs Kasparov”</h2>
+    <p>Primera victoria de una máquina contra un campeón mundial. Deep Blue ganó 3,5–2,5. Destacaba su <b class="y">capacidad de Cálculo</b></p>
+  </header>
+  <div class="cap-body">
+    <figure class="foto"><img src="assets/juegos/kasparov-tv.png" alt="Kasparov vs Deep Blue">
+      <div class="marcador"><span class="y">Deep Blue</span><div class="prog"><i style="width:58%"></i></div><small>Gana con 3,5</small>
+        <div class="partidas"><b class="p0">✕</b><b class="p1">✓</b><b>½</b><b>½</b><b>½</b><b class="p1">✓</b></div></div></figure>
+    <div class="juego">
+      <p class="lbl y" id="j97-lbl">Fragmento de Ronda 6</p>
+      <p id="j97-txt">Elegí tu jugada:</p>
+      <div class="btns" id="j97-btns"><button>Atacar</button><button>Avanzar</button><button>Retroceder</button></div>
+      <div id="j97-plan"></div>
+      <div class="ajedrez" id="tab97"></div>
+      <p id="j97-res" class="res"></p>
+    </div>
+  </div>
+</section>
+
+<!-- CAPÍTULO 2016 (Figma: Ajedrez 36–47) -->
+<section id="cap-2016" class="screen capitulo">
+  <header class="cap-head">
+    <h2><span class="y">2016</span> “AlphaGo vs Lee Sedol”</h2>
+    <p>Una IA usa la “intuición” basada en <b class="y">búsqueda</b> de redes y reglas para ganarle a un profesional de Go.</p>
+  </header>
+  <div class="cap-body">
+    <figure class="foto"><img src="assets/juegos/leesedol-marco.png" alt="AlphaGo vs Lee Sedol">
+      <figcaption class="y">Posiciones posibles de cada juego</figcaption>
+      <div class="pos"><span>Go</span> 10 × ●●●●●●●● <sup>170</sup></div>
+      <div class="pos"><span>Ajedrez</span> 10 × ♟ <sup>44</sup></div>
+    </figure>
+    <div class="go-wrap">
+      <div class="tabs-go" id="go-tabs"><button class="on" data-t="0">AlphaGo</button><button data-t="1">Probabilidad</button><button data-t="2">Jugada</button></div>
+      <div class="juego">
+        <div id="go-p0" class="juego">
+          <p class="lbl y" id="go-lbl">Colocá una pieza ●</p>
+          <div class="go" id="go"></div>
+          <button class="reiniciar" id="go-reset">Reiniciar</button>
+        </div>
+        <div id="go-p1" class="juego" hidden>
+          <p class="lbl y" id="go-t1">Probabilidad de las jugadas</p>
+          <small class="y">(Jugada 37 en el torneo)</small>
+          <div class="dots" id="go-dots"></div>
+          <p class="res" id="go-t2">1/10.000 jugadas humanas</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- JEOPARDY 2011 (Figma: Jeopardy, -1..-4) -->
+<section id="jeopardy" class="screen capitulo">
+  <header class="cap-head"><h2><span class="y">2011</span><br>Fuera del tablero</h2></header>
+  <div class="cap-body">
+    <div class="jp-izq"><img class="jp-foto" id="jp-foto" src="assets/juegos/jeopardy.jpg" alt="Ken Jennings, Watson y Brad Rutter en Jeopardy!"><p id="jp-txt"></p><div class="concursantes" id="jp-conc"></div></div>
+    <div class="jp-tab" id="jp-tab"></div>
+  </div>
+</section>
+
+<!-- 2017 LIBRATUS (Figma: Ajedrez 48–58) -->
+<section id="cap-2017" class="screen capitulo">
+  <header class="cap-head"><h2><span class="y">2017</span> “Libratus”</h2>
+    <p>La IA superó a 4 jugadores profesionales de Poker, un juego conocido por tener <b class="y">información oculta</b>. La IA <b>aprendió</b> de ellos</p></header>
+  <div class="cap-body">
+    <figure class="foto"><img src="assets/juegos/libratus.png" alt="Libratus"></figure>
+    <div class="juego"><div class="dorso"></div><p id="lib-txt"></p><div class="cartas" id="lib-cartas"></div><p class="y" id="lib-fin"></p></div>
+    <div class="juego"><p class="y">Apuestas en el torneo</p><div class="barras" id="lib-barras"></div><div class="linea-t" id="lib-linea"></div></div>
+  </div>
+</section>
+
+<!-- 2018 OPENAI FIVE (Figma: Ajedrez 59–73) -->
+<section id="cap-2018" class="screen capitulo">
+  <header class="cap-head"><h2><span class="y">2018</span> “OpenIA Five”</h2>
+    <p>La IA controlaba los 5 personajes diferentes mediante una <b class="y">red neuronal</b>, venciendo a un equipo profesional con su capacidad de <b class="y">aprender</b> jugando contra sí mismo</p></header>
+  <div class="cap-body">
+    <figure class="foto"><img src="assets/juegos/openai-five.png" alt="OpenAI Five"><figcaption class="y">La IA Controlaba a 5 personajes a la vez</figcaption>
+      <div class="dota" id="dota-menu">
+        <button class="dota-b" data-d="0"><img src="assets/juegos/dota-early-game.png" alt="Early game"></button>
+        <button class="dota-b" data-d="1"><img src="assets/juegos/dota-starting-items.png" alt="Starting items"></button>
+        <button class="dota-b" data-d="2"><img src="assets/juegos/dota-late-game.png" alt="Late game"></button>
+      </div>
+      <div class="equipos"><span class="cerebro">🧠</span><div class="eq"><span>👤🏹</span><span>👤💔</span><span>👤🛡</span><span>👤🗡</span><span>👤🧙</span></div><b class="y">VS</b><div class="eq"><span>👤🏹</span><span>👤💔</span><span>👤🛡</span><span>👤🗡</span><span>👤🧙</span></div></div></figure>
+    <div class="juego"><p class="y">Cantidad de Partidas jugadas</p><div class="barras" id="oa-graf"></div><div class="linea-t" id="oa-linea"></div></div>
+  </div>
+</section>
+
+<!-- RESUMEN (Figma: Ajedrez 17, 74, 75) -->
+<section id="resumen" class="screen capitulo">
+  <header class="cap-head"><h2>Eran todas iguales? <span class="mini">“El resumen”</span></h2></header>
+  <div class="tabs" id="res-tabs"><button data-k="calculo">Cálculo</button><button data-k="aprendizaje">Aprendizaje</button><button data-k="busqueda">Búsqueda</button></div>
+  <div class="barras grande" id="res-barras"></div>
+</section>
+
+<!-- NOBBY: ¿Cuándo empezó la IA a entendernos? (Figma: InfografiaTaller) -->
+<section id="nobby" class="screen">
+<div class="stage" id="nstage">
+<div class="ns " id="n-intro" data-bg="#292929" data-nograph>
+<div class="bub tail" style="left:131px;top:243px;width:683px;height:170px;padding-left:42px">Hola! soy Nobby, un chatbot y hoy<br>quiero contarte sobre nosotros</div>
+<div class="bub tail one" style="left:131px;top:472px;width:683px;height:98px;padding-left:47px">¿Por dónde empezamos?</div>
+<button class="ybtn sh" data-go="n-turing" style="left:225px;top:704px;width:471px;height:83px">¿Cuándo nacieron?</button>
+<button class="ybtn sh2" data-go="n-nodos" style="left:225px;top:827px;width:471px;height:83px">¿Como funcionan?</button>
+<img class="ab " src="assets/nobby/r-intro.png" style="left:1050px;top:258px;" alt="">
+</div>
+<div class="ns " id="n-turing" data-bg="#292929">
+<div class="bub tail up" style="left:92px;top:186px;width:683px;height:242px;padding-left:48px">Alan Turing propone una prueba<br>para evaluar si una máquina puede<br>hacerse pasar por un humano<br>mediante una conversación.</div>
+<div class="bub tail" style="left:92px;top:473px;width:683px;height:362px;padding-left:48px"></div>
+<img class="ab " src="assets/nobby/turing.jpg" style="left:168px;top:505px;width:532px;height:299px;" alt="">
+<div class="bub tail" style="left:92px;top:881px;width:683px;height:98px;padding-left:48px">Este es el inicio de todo</div>
+<button class="ybtn" data-go="n-nodos" style="left:899px;top:437px;width:471px;height:83px">¿Como funcionan?</button>
+<button class="ybtn" data-go="n-eliza" style="left:899px;top:560px;width:471px;height:83px">¿Cual fue el primero?</button>
+<img class="ab " src="assets/nobby/r-turing-top.png" style="left:1691px;top:169px;" alt="">
+<div class="ab t wb" style="left:1498px;top:216px;">Dato<br>curioso!</div>
+<img class="ab " src="assets/nobby/r-arrow.png" style="left:1597px;top:193px;" alt="">
+<div class="ab t yb" style="left:1519px;top:632px;">¡Sigamos explorando!</div>
+<img class="ab " src="assets/nobby/r-turing-bot.png" style="left:1498px;top:709px;" alt="">
+</div>
+<div class="ns " id="n-furby" data-bg="#292929">
+<div class="bub tail" style="left:131px;top:202px;width:683px;height:207px;padding-left:38px">En 1998 Dave Hamptom y Caleb<br>Chung crean Furby, la primera<br>mascota robótica doméstica</div>
+<a class="ab vid" href="https://www.youtube.com/results?search_query=El+Furby+History+Channel" target="_blank" rel="noopener" style="left:130px;top:446px;width:500px;height:281px"><img src="assets/nobby/furby.jpg" alt="El Furby"></a>
+<div class="ab tailonly" style="left:130px;top:727px"></div>
+<div class="bub tail one" style="left:131px;top:778px;width:683px;height:98px;padding-left:48px">Este video te cuenta todo</div>
+<div class="ab t yb" style="left:1222px;top:283px;">¡Sigamos explorando!<br>Ahora quiero presentarte a Parry.</div>
+<button class="ybtn" data-go="n-parry" style="left:1223px;top:446px;width:471px;height:83px">Conocer a Parry.</button>
+<img class="ab " src="assets/nobby/r-furby.png" style="left:1473px;top:643px;" alt="">
+</div>
+<div class="ns " id="n-nodos" data-bg="#292929" data-nograph>
+<div class="bub tail" style="left:131px;top:180px;width:683px;height:207px;padding-left:42px">Como todas las IAs en general,<br>usamos redes neuronales,<br>conectando distintos nodos de<br>información</div>
+<div class="bub tail one" style="left:131px;top:447px;width:683px;height:98px;padding-left:48px">Aca podés explorar algunos</div>
+<img class="ab " src="assets/nobby/r-nodos.png" style="left:139px;top:576px;" alt="">
+<svg class="ab" style="left:0;top:0" width="1920" height="1080"><line x1="1226.1" y1="396.1" x2="1433.2" y2="440.3" stroke="#7d6b2e" stroke-width="6" stroke-linecap="round"/><line x1="1172.3" y1="383.4" x2="1277.4" y2="570.3" stroke="#7d6b2e" stroke-width="6" stroke-linecap="round"/><line x1="1137.1" y1="396.0" x2="1001.8" y2="497.2" stroke="#7d6b2e" stroke-width="6" stroke-linecap="round"/><line x1="1076.3" y1="515.2" x2="1268.6" y2="558.5" stroke="#7d6b2e" stroke-width="6" stroke-linecap="round"/><line x1="999.5" y1="538.8" x2="1073.2" y2="659.7" stroke="#7d6b2e" stroke-width="6" stroke-linecap="round"/><line x1="1082.3" y1="646.1" x2="1286.1" y2="549.7" stroke="#7d6b2e" stroke-width="6" stroke-linecap="round"/><line x1="1263.2" y1="571.4" x2="1434.9" y2="444.5" stroke="#7d6b2e" stroke-width="6" stroke-linecap="round"/><line x1="1273.0" y1="566.7" x2="1556.5" y2="581.2" stroke="#7d6b2e" stroke-width="6" stroke-linecap="round"/><line x1="1440.6" y1="457.6" x2="1577.1" y2="590.7" stroke="#7d6b2e" stroke-width="6" stroke-linecap="round"/><line x1="1063.9" y1="678.4" x2="1558.5" y2="614.5" stroke="#7d6b2e" stroke-width="6" stroke-linecap="round"/></svg>
+<button class="node" data-go="n-chatgpt" style="left:1123px;top:348px"><img src="assets/nobby/g-chatgpt.png" alt="ChatGPT"></button><button class="node" data-go="n-furby" style="left:1386px;top:407px"><img src="assets/nobby/g-furby.png" alt="Furby"></button><button class="node" data-go="n-eliza" style="left:954px;top:467px"><span class="ge">E</span></button><button class="node" data-go="n-jabb" style="left:1221px;top:515px"><img src="assets/nobby/g-wacky.png" alt="Jabberwacky"></button><button class="node" data-go="n-alice" style="left:1502px;top:535px"><svg viewBox="0 0 122 119" width="52" height="51"><path d="M61 10C75 10 117 80 111 100 107 110 90 110 61 110 32 110 15 110 11 100 5 80 47 10 61 10Z" fill="none" stroke="#000" stroke-width="16" stroke-linejoin="round"/></svg></button><button class="node" data-go="n-parry" style="left:1031px;top:611px"><span class="gp2">PARRY</span></button>
+</div>
+<div class="ns " id="n-eliza" data-bg="#1e1e1e">
+<div class="ab etitle">ELIZA</div>
+<div class="ab eframe"></div>
+<div class="ab t px" style="left:345px;top:326px;">ELIZA:Hola soy ELIZA un programa creado por Joseph Weizenbaum en<br>el MIT capaz de mantener conversaciones escritas con personas.</div>
+<button class="pbtn" data-go="n-eliza2" style="left:762px;top:818px;width:395px;height:53px">¿Podes entenderme?</button>
+<div class="ab t yb s22" style="left:51px;top:753px;">Te presento a ELIZA!<br>Preguntemosle algo.</div>
+<img class="ab " src="assets/nobby/r-eliza.png" style="left:40px;top:846px;" alt="">
+</div>
+<div class="ns " id="n-eliza2" data-bg="#1e1e1e">
+<div class="ab etitle">ELIZA</div>
+<div class="ab eframe"></div>
+<div class="ab t px" style="left:345px;top:326px;">ELIZA:Hola soy ELIZA un programa creado por Joseph Weizenbaum en<br>el MIT capaz de mantener conversaciones escritas con personas.</div>
+<div class="ab t px" style="left:345px;top:435px;">USUARIO:¿Podes entenderme?.</div>
+<div class="ab t px" style="left:345px;top:511px;">ELIZA:No entiendo realmente lo que decís.<br>Busco palabras clave, detecto patrones y transformo tu frase en<br>una respuesta siguiendo reglas preestablecidas.</div>
+<div class="ab t px" style="left:345px;top:673px;">ELIZA:Quizas Parry o Jabb si puedan.</div>
+<button class="pbtn" data-go="n-parry" style="left:521px;top:801px;width:395px;height:53px">¿Quien es Parry?</button>
+<button class="pbtn" data-go="n-jabb" style="left:1016px;top:801px;width:395px;height:53px">¿Quien es Jabb?</button>
+</div>
+<div class="ns " id="n-parry" data-bg="#2b2b2b">
+<div class="ab ppanel"></div>
+<div class="ab t fz small" style="left:531px;top:132px;">N<span class="sc">ETWORK</span> W<span class="sc">ORKING</span> G<span class="sc">ROUP</span><br>R<span class="sc">EQUEST</span> <span class="sc">FOR</span> <span class="sc">COMMENTS</span>: 287<br>NIC: 4311</div>
+<div class="ab t fz small" style="left:1192px;top:131px;">V.<span class="sc">CERF</span><br>SU-ERL<br>21 J<span class="sc">ANUARY</span> 1973</div>
+<div class="ab fz ptitle">PARRY</div>
+<div class="ab t fz body" style="left:531px;top:303px;">B<span class="sc">UEN</span> <span class="sc">DIA</span>.<br>C<span class="sc">ONTAME</span> <span class="sc">TUS</span> <span class="sc">PROBLEMAS</span>. P<span class="sc">OR</span> <span class="sc">FAVOR</span>, <span class="sc">TERMINA</span> <span class="sc">EL</span> <span class="sc">MENSAJE</span> <span class="sc">CON</span> <span class="sc">UN</span> <span class="sc">PUNTO</span> <span class="sc">O</span><br><span class="sc">SIGNO</span> <span class="sc">DE</span> <span class="sc">PREGUNTA</span>.</div>
+<button class="fbtn" data-go="n-parry2" style="left:728px;top:979px;width:395px;height:53px">C<span class="sc">ONTAME</span> <span class="sc">SOBRE</span> <span class="sc">VOS</span>.</button>
+<div class="ab t yb s32" style="left:1480px;top:686px;">El es Parry, es un<br>poco complicado<br>pero es bueno</div>
+<img class="ab " src="assets/nobby/r-parry.png" style="left:1659px;top:796px;" alt="">
+</div>
+<div class="ns " id="n-parry2" data-bg="#2b2b2b">
+<div class="ab ppanel"></div>
+<div class="ab t fz small" style="left:531px;top:132px;">N<span class="sc">ETWORK</span> W<span class="sc">ORKING</span> G<span class="sc">ROUP</span><br>R<span class="sc">EQUEST</span> <span class="sc">FOR</span> <span class="sc">COMMENTS</span>: 287<br>NIC: 4311</div>
+<div class="ab t fz small" style="left:1192px;top:131px;">V.<span class="sc">CERF</span><br>SU-ERL<br>21 J<span class="sc">ANUARY</span> 1973</div>
+<div class="ab fz ptitle">PARRY</div>
+<div class="ab t fz body" style="left:531px;top:303px;">B<span class="sc">UEN</span> <span class="sc">DIA</span>.<br>C<span class="sc">ONTAME</span> <span class="sc">TUS</span> <span class="sc">PROBLEMAS</span>. P<span class="sc">OR</span> <span class="sc">FAVOR</span>, <span class="sc">TERMINA</span> <span class="sc">EL</span> <span class="sc">MENSAJE</span> <span class="sc">CON</span> <span class="sc">UN</span> <span class="sc">PUNTO</span> <span class="sc">O</span><br><span class="sc">SIGNO</span> <span class="sc">DE</span> <span class="sc">PREGUNTA</span>.</div>
+<div class="ab t fz body" style="left:531px;top:423px;">*C<span class="sc">ONTAME</span> <span class="sc">SOBRE</span> <span class="sc">VOS</span>.</div>
+<div class="ab t fz body" style="left:531px;top:483px;">F<span class="sc">UI</span> <span class="sc">DESARROLLADO</span> <span class="sc">EN</span> 1972 <span class="sc">POR</span> <span class="sc">EL</span> <span class="sc">PSIQUIATRA</span> K<span class="sc">ENNETH</span> C<span class="sc">OLBY</span>, <span class="sc">EN</span><br>S<span class="sc">TANFORD</span>. M<span class="sc">I</span> <span class="sc">OBJETIVO</span> <span class="sc">ERA</span> <span class="sc">SIMULAR</span> <span class="sc">MEDIANTE</span> <span class="sc">COMPUTADORA</span> <span class="sc">A</span> <span class="sc">UNA</span><br><span class="sc">PERSONA</span> <span class="sc">CON</span> <span class="sc">PENSAMIENTO</span> <span class="sc">PARANOIDE</span>.</div>
+<button class="fbtn" data-go="n-parry3" style="left:728px;top:979px;width:395px;height:53px">¿P<span class="sc">ODES</span> <span class="sc">ENTENDERME</span>?</button>
+</div>
+<div class="ns " id="n-parry3" data-bg="#2b2b2b">
+<div class="ab ppanel"></div>
+<div class="ab t fz small" style="left:531px;top:132px;">N<span class="sc">ETWORK</span> W<span class="sc">ORKING</span> G<span class="sc">ROUP</span><br>R<span class="sc">EQUEST</span> <span class="sc">FOR</span> <span class="sc">COMMENTS</span>: 287<br>NIC: 4311</div>
+<div class="ab t fz small" style="left:1192px;top:131px;">V.<span class="sc">CERF</span><br>SU-ERL<br>21 J<span class="sc">ANUARY</span> 1973</div>
+<div class="ab fz ptitle">PARRY</div>
+<div class="ab t fz body" style="left:531px;top:303px;">F<span class="sc">UI</span> <span class="sc">DESARROLLADO</span> <span class="sc">EN</span> 1972 <span class="sc">POR</span> <span class="sc">EL</span> <span class="sc">PSIQUIATRA</span> K<span class="sc">ENNETH</span> C<span class="sc">OLBY</span>, <span class="sc">EN</span><br>S<span class="sc">TANFORD</span>. M<span class="sc">I</span> <span class="sc">OBJETIVO</span> <span class="sc">ERA</span> <span class="sc">SIMULAR</span> <span class="sc">MEDIANTE</span> <span class="sc">COMPUTADORA</span> <span class="sc">A</span> <span class="sc">UNA</span><br><span class="sc">PERSONA</span> <span class="sc">CON</span> <span class="sc">PENSAMIENTO</span> <span class="sc">PARANOIDE</span>.</div>
+<div class="ab t fz body" style="left:531px;top:423px;">*¿P<span class="sc">ODES</span> <span class="sc">ENTENDERME</span>?</div>
+<div class="ab t fz body" style="left:531px;top:483px;">¿P<span class="sc">OR</span> <span class="sc">QUÉ</span> <span class="sc">QUERES</span> <span class="sc">SABER</span> <span class="sc">ESO</span>?</div>
+<button class="fbtn" data-go="n-parryc" style="left:728px;top:896px;width:395px;height:53px">P<span class="sc">OR</span> <span class="sc">CURIOSIDAD</span>.</button>
+<button class="fbtn" data-go="n-parryk" style="left:728px;top:979px;width:395px;height:53px">P<span class="sc">ARA</span> <span class="sc">CONOCERTE</span>.</button>
+</div>
+<div class="ns " id="n-parryc" data-bg="#2b2b2b">
+<div class="ab ppanel"></div>
+<div class="ab t fz small" style="left:531px;top:132px;">N<span class="sc">ETWORK</span> W<span class="sc">ORKING</span> G<span class="sc">ROUP</span><br>R<span class="sc">EQUEST</span> <span class="sc">FOR</span> <span class="sc">COMMENTS</span>: 287<br>NIC: 4311</div>
+<div class="ab t fz small" style="left:1192px;top:131px;">V.<span class="sc">CERF</span><br>SU-ERL<br>21 J<span class="sc">ANUARY</span> 1973</div>
+<div class="ab fz ptitle">PARRY</div>
+<div class="ab t fz body" style="left:531px;top:303px;">*¿P<span class="sc">ODES</span> <span class="sc">ENTENDERME</span>?</div>
+<div class="ab t fz body" style="left:531px;top:363px;">¿P<span class="sc">OR</span> <span class="sc">QUÉ</span> <span class="sc">QUERES</span> <span class="sc">SABER</span> <span class="sc">ESO</span>?</div>
+<div class="ab t fz body" style="left:531px;top:423px;">*P<span class="sc">OR</span> <span class="sc">CURIOSIDAD</span>.</div>
+<div class="ab t fz body" style="left:531px;top:483px;">A<span class="sc">L</span> <span class="sc">IGUAL</span> <span class="sc">QUE</span> ELIZA, <span class="sc">FUNCIONO</span> <span class="sc">MEDIANTE</span> <span class="sc">REGLAS</span> <span class="sc">Y</span> <span class="sc">PROCESAMIENTO</span><br><span class="sc">SIMBÓLICO</span>, <span class="sc">PERO</span> <span class="sc">INCORPORO</span> <span class="sc">ALGO</span> <span class="sc">MÁS</span> <span class="sc">ELABORADO</span>: <span class="sc">UN</span> <span class="sc">MODELO</span> <span class="sc">DE</span><br><span class="sc">CREENCIAS</span> <span class="sc">Y</span> <span class="sc">ESTADOS</span> <span class="sc">INTERNOS</span> <span class="sc">QUE</span> <span class="sc">INFLUYE</span> <span class="sc">EN</span> <span class="sc">MIS</span> <span class="sc">RESPUESTAS</span>. P<span class="sc">OR</span> <span class="sc">ESO</span><br><span class="sc">PUEDO</span> <span class="sc">MANTENER</span> <span class="sc">UNA</span> <span class="sc">PERSONALIDAD</span> <span class="sc">MÁS</span> <span class="sc">CONSISTENTE</span> <span class="sc">DURANTE</span> <span class="sc">UNA</span><br><span class="sc">CONVERSACIÓN</span>.</div>
+<div class="ab t fz body" style="left:531px;top:663px;">Y<span class="sc">A</span> <span class="sc">ME</span> <span class="sc">CANSÉ</span>, <span class="sc">HABLA</span> <span class="sc">CON</span> J<span class="sc">ABB</span> <span class="sc">O</span> A<span class="sc">LICE</span>.</div>
+<button class="fbtn" data-go="n-jabb" style="left:728px;top:896px;width:395px;height:53px">¿Q<span class="sc">UIEN</span> <span class="sc">ES</span> J<span class="sc">ABB</span>?</button>
+<button class="fbtn" data-go="n-alice" style="left:728px;top:979px;width:395px;height:53px">¿Q<span class="sc">UIEN</span> <span class="sc">ES</span> ALICE?</button>
+</div>
+<div class="ns " id="n-parryk" data-bg="#2b2b2b">
+<div class="ab ppanel"></div>
+<div class="ab t fz small" style="left:531px;top:132px;">N<span class="sc">ETWORK</span> W<span class="sc">ORKING</span> G<span class="sc">ROUP</span><br>R<span class="sc">EQUEST</span> <span class="sc">FOR</span> <span class="sc">COMMENTS</span>: 287<br>NIC: 4311</div>
+<div class="ab t fz small" style="left:1192px;top:131px;">V.<span class="sc">CERF</span><br>SU-ERL<br>21 J<span class="sc">ANUARY</span> 1973</div>
+<div class="ab fz ptitle">PARRY</div>
+<div class="ab t fz body" style="left:531px;top:303px;">*¿P<span class="sc">ODES</span> <span class="sc">ENTENDERME</span>?</div>
+<div class="ab t fz body" style="left:531px;top:363px;">¿P<span class="sc">OR</span> <span class="sc">QUÉ</span> <span class="sc">QUERES</span> <span class="sc">SABER</span> <span class="sc">ESO</span>?</div>
+<div class="ab t fz body" style="left:531px;top:423px;">*P<span class="sc">ARA</span> <span class="sc">CONOCERTE</span>.</div>
+<div class="ab t fz body" style="left:531px;top:483px;">N<span class="sc">O</span> <span class="sc">ME</span> <span class="sc">INTERESA</span> <span class="sc">QUE</span> <span class="sc">ME</span> <span class="sc">CONOZCAS</span>, <span class="sc">HABLÁ</span> <span class="sc">CON</span> J<span class="sc">ABB</span> <span class="sc">O</span> A<span class="sc">LICE</span> <span class="sc">MEJOR</span>.</div>
+<button class="fbtn" data-go="n-jabb" style="left:728px;top:896px;width:395px;height:53px">¿Q<span class="sc">UIEN</span> <span class="sc">ES</span> J<span class="sc">ABB</span>?</button>
+<button class="fbtn" data-go="n-alice" style="left:728px;top:979px;width:395px;height:53px">¿Q<span class="sc">UIEN</span> <span class="sc">ES</span> A<span class="sc">LICE</span>?</button>
+</div>
+<div class="ns " id="n-jabb" data-bg="#2b2b2b">
+<div class="ab jpanel" style="left:66px;top:145px;width:989px;height:904px"></div>
+<img class="ab " src="assets/nobby/jabber.png" style="left:105px;top:165px;width:913px;height:465px;" alt="">
+<div class="ab jrow bot" style="left:105px;top:629px;width:914px;height:41px;padding-left:16px">Hola, soy Jabberwacky, de que te gustaria hablar?</div>
+<div class="ab jrow usr" style="left:105px;top:670px;width:914px;height:41px;padding-left:16px"></div>
+<div class="ab jlight" style="left:105px;top:711px;width:914px;height:307px"></div>
+<button class="pbtn" data-go="n-jabb2" style="left:364px;top:942px;width:395px;height:53px">¿Quien te creo?</button>
+<div class="ab t yb" style="left:1354px;top:456px;">Hola Jabb!<br>Este es uno de mis chatbots<br>favoritos</div>
+<img class="ab " src="assets/nobby/r-jabb.png" style="left:1405px;top:612px;" alt="">
+</div>
+<div class="ns " id="n-jabb2" data-bg="#2b2b2b">
+<div class="ab jpanel" style="left:465px;top:145px;width:989px;height:904px"></div>
+<img class="ab " src="assets/nobby/jabber.png" style="left:504px;top:165px;width:913px;height:465px;" alt="">
+<div class="ab jrow bot" style="left:504px;top:629px;width:914px;height:41px;padding-left:16px">Hola, soy Jabberwacky, de que te gustaria hablar?</div>
+<div class="ab jrow usr" style="left:504px;top:670px;width:914px;height:41px;padding-left:16px">¿Quien te creo?</div>
+<div class="ab jrow bot ans" style="left:504px;top:711px;width:914px;height:121px;padding-left:16px">Fui creado por Rollo Carpenter en 1988 aunque estoy disponible en internet desde 1997<br>soy un chatbot conversacional basado en aprendizaje a partir de interacciones.</div>
+<div class="ab jlight" style="left:504px;top:832px;width:914px;height:186px"></div>
+<button class="pbtn" data-go="n-jabb3" style="left:539px;top:942px;width:395px;height:53px">¿Como funcionas?</button>
+<button class="pbtn" data-go="n-jabb4" style="left:978px;top:942px;width:395px;height:53px">¿Me entendes?</button>
+</div>
+<div class="ns " id="n-jabb3" data-bg="#2b2b2b">
+<div class="ab jpanel" style="left:465px;top:145px;width:989px;height:904px"></div>
+<img class="ab " src="assets/nobby/jabber.png" style="left:504px;top:165px;width:913px;height:465px;" alt="">
+<div class="ab jrow usr" style="left:504px;top:629px;width:914px;height:41px;padding-left:16px">¿Como funcionas?</div>
+<div class="ab jrow bot ans" style="left:504px;top:670px;width:914px;height:121px;padding-left:16px">Guardo conversaciones anteriores y utilizo esas interacciones como una base de datos para generar<br>nuevas respuestas. Cuando una persona escribe algo, busco conversaciones previas con frases o<br>contextos similares y selecciono una respuesta que puda encajar.</div>
+<div class="ab jlight" style="left:504px;top:791px;width:914px;height:227px"></div>
+<button class="pbtn" data-go="n-jabb5" style="left:763px;top:937px;width:395px;height:53px">¿Tenes voz?</button>
+</div>
+<div class="ns " id="n-jabb4" data-bg="#2b2b2b">
+<div class="ab jpanel" style="left:465px;top:145px;width:989px;height:904px"></div>
+<img class="ab " src="assets/nobby/jabber.png" style="left:504px;top:165px;width:913px;height:465px;" alt="">
+<div class="ab jrow usr" style="left:504px;top:629px;width:914px;height:41px;padding-left:16px">¿Me entendes?</div>
+<div class="ab jrow bot ans ans2" style="left:504px;top:670px;width:914px;height:167px;padding-left:26px">No comprendo el significado de las palabras ni construyo las respuestas desde una comprensión<br>semántica del lenguaje. Mi funcionamiento depende de encontrar asociaciones y respuestas<br>almacenadas en conversaciones anteriores. Por eso puedo producir respuestas sorprendentemente<br>humanas, pero también respuestas absurdas o fuera de contexto.</div>
+<div class="ab jlight" style="left:504px;top:837px;width:914px;height:181px"></div>
+<button class="pbtn" data-go="n-jabb5" style="left:763px;top:938px;width:395px;height:53px">¿Tenes voz?</button>
+</div>
+<div class="ns " id="n-jabb5" data-bg="#2b2b2b">
+<div class="ab jpanel" style="left:465px;top:145px;width:989px;height:904px"></div>
+<img class="ab " src="assets/nobby/jabber.png" style="left:504px;top:165px;width:913px;height:465px;" alt="">
+<div class="ab jrow usr" style="left:504px;top:629px;width:914px;height:41px;padding-left:16px">¿Tenes voz?</div>
+<div class="ab jrow bot ans ans2" style="left:504px;top:670px;width:914px;height:167px;padding-left:26px">Lamentablemente mi modelo no cuenta con voz que puedas escuchar.<br>Pero Alice puede ayudarte con eso.</div>
+<div class="ab jlight" style="left:504px;top:837px;width:914px;height:181px"></div>
+<button class="pbtn" data-go="n-alice" style="left:763px;top:938px;width:395px;height:53px">¿Quien es ALICE?</button>
+</div>
+<div class="ns light" id="n-alice" data-bg="#fff">
+<svg class="ab" viewBox="0 0 122 119" width="122" height="119" style="left:899px;top:280px"><defs><linearGradient id="alg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3fb4ee"/><stop offset="1" stop-color="#7d4ff6"/></linearGradient></defs><path d="M61 8C79 8 118 78 112 99 108 112 88 113 61 113 34 113 14 112 10 99 4 78 43 8 61 8Z" fill="none" stroke="url(#alg)" stroke-width="16" stroke-linejoin="round"/></svg>
+<div class="ab sora" style="left:-9px;top:444px;width:1920px;text-align:center;font-size:32.2px;line-height:40px">Hola! Soy ALice tu asistente virtual.</div>
+<button class="ab wavebtn" data-go="n-alice2" style="left:830px;top:590px;width:260px;height:200px"><svg viewBox="0 0 146 130" width="146" height="130" class="wave" style="position:absolute;left:57px;top:9px"><rect x="0" y="50" width="10" height="30" rx="5" fill="#47b0e8"/><rect x="17" y="30" width="10" height="70" rx="5" fill="#47b0e8"/><rect x="34" y="40" width="10" height="50" rx="5" fill="#47b0e8"/><rect x="51" y="11" width="10" height="108" rx="5" fill="#47b0e8"/><rect x="68" y="34" width="10" height="62" rx="5" fill="#47b0e8"/><rect x="85" y="24" width="10" height="82" rx="5" fill="#47b0e8"/><rect x="102" y="1" width="10" height="128" rx="5" fill="#47b0e8"/><rect x="119" y="32" width="10" height="66" rx="5" fill="#47b0e8"/><rect x="136" y="44" width="10" height="42" rx="5" fill="#47b0e8"/></svg><span class="sora">Reproducir voz</span></button>
+</div>
+<div class="ns light" id="n-alice2" data-bg="#fff">
+<div class="ab" style="left:73px;top:173px"><svg viewBox="0 0 146 130" width="146" height="130" class="wave"><rect x="0" y="50" width="10" height="30" rx="5" fill="#47b0e8"/><rect x="17" y="30" width="10" height="70" rx="5" fill="#47b0e8"/><rect x="34" y="40" width="10" height="50" rx="5" fill="#47b0e8"/><rect x="51" y="11" width="10" height="108" rx="5" fill="#47b0e8"/><rect x="68" y="34" width="10" height="62" rx="5" fill="#47b0e8"/><rect x="85" y="24" width="10" height="82" rx="5" fill="#47b0e8"/><rect x="102" y="1" width="10" height="128" rx="5" fill="#47b0e8"/><rect x="119" y="32" width="10" height="66" rx="5" fill="#47b0e8"/><rect x="136" y="44" width="10" height="42" rx="5" fill="#47b0e8"/></svg></div>
+<div class="ab t sora s29" style="left:67px;top:335px;">(transcripción de audio)</div>
+<div class="ab t sora s29" style="left:67px;top:391px;">Alice AI (Алиса) es un asistente virtual desarrollado por Yandex y presentado en 2017. Inicialmente<br>funcionaba como asistente para tareas como búsquedas, clima y conversación, pero posteriormente<br>evolucionó hacia sistemas basados en modelos neuronales y capacidades generativas</div>
+<button class="bluepill" data-go="n-alice3" style="left:725px;top:889px;width:553px;height:63px">¿Sos la unica que tiene voz?</button>
+</div>
+<div class="ns light" id="n-alice3" data-bg="#fff">
+<div class="bluepill" style="left:1324px;top:206px;width:553px;height:63px">¿Sos la unica que tiene voz?</div>
+<div class="ab" style="left:73px;top:317px"><svg viewBox="0 0 146 130" width="146" height="130" class="wave"><rect x="0" y="50" width="10" height="30" rx="5" fill="#47b0e8"/><rect x="17" y="30" width="10" height="70" rx="5" fill="#47b0e8"/><rect x="34" y="40" width="10" height="50" rx="5" fill="#47b0e8"/><rect x="51" y="11" width="10" height="108" rx="5" fill="#47b0e8"/><rect x="68" y="34" width="10" height="62" rx="5" fill="#47b0e8"/><rect x="85" y="24" width="10" height="82" rx="5" fill="#47b0e8"/><rect x="102" y="1" width="10" height="128" rx="5" fill="#47b0e8"/><rect x="119" y="32" width="10" height="66" rx="5" fill="#47b0e8"/><rect x="136" y="44" width="10" height="42" rx="5" fill="#47b0e8"/></svg></div>
+<div class="ab t sora s29" style="left:67px;top:480px;">(transcripción de audio)</div>
+<div class="ab t sora s29" style="left:67px;top:535px;">En la actualidad, la mayoria de chatbots podemos entender voces humanas, podemos leer textos en voz<br>alta, y nuestras versiones mas modernas pueden conversar con naturalidad con cualquier ser humano.<br>Te dejo con el experto en eso.</div>
+<div class="ab t blk s28" style="left:1382px;top:702px;">Al fin llegamos!<br>Conozcamos al mas<br>moderno.</div>
+<img class="ab " src="assets/nobby/r-alice.png" style="left:1120px;top:744px;" alt="">
+<button class="ypill" data-go="n-chatgpt" style="left:1398px;top:894px;width:434px;height:62px">Conocer a ChatGPT</button>
+</div>
+<div class="ns dark" id="n-chatgpt" data-bg="#000">
+<div class="ab t gp" style="left:122px;top:298px;"><b>¡Hola! 👋 soy ChatGPT.</b><br>Estuve viendo que estuviste recorriendo la historia de los chatbots y descubriste cómo fueron<br>cambiando con el tiempo.<br>Desde las primeras conversaciones basadas en reglas hasta las inteligencias artificiales<br>capaces de generar texto, imágenes y mucho más.<br>¿En qué te gustaría profundizar?</div>
+<button class="bpill" data-go="n-res1" style="left:750px;top:917px;width:469px">Haceme un resúmen</button>
+</div>
+<div class="ns dark" id="n-res1" data-bg="#000">
+<div class="ab t gp" style="left:102px;top:177px;"><b>¡Hola! 👋</b><br>Estuve viendo que estuviste recorriendo la historia de los chatbots y descubriste cómo fueron<br>cambiando con el tiempo.<br>Desde las primeras conversaciones basadas en reglas hasta las inteligencias artificiales<br>capaces de generar texto, imágenes y mucho más.<br>¿En qué te gustaría profundizar?</div>
+<div class="bpill" style="left:1578px;top:345px;width:246px">Haceme un resúmen</div>
+<div class="ab t gp" style="left:109px;top:409px;">Genial, empecemos por ELIZA<br>Contaba con:<br>50 palabras clave que podía reconocer<br>128 espacios para organizarlas<br>La poca cantidad hacia que las respuestas se sientan vacias con el tiempo.</div>
+<div class="ab chart" data-chart="1" style="left:107px;top:598px;width:508px;height:256px"></div>
+<button class="bpill" data-go="n-res2" style="left:692px;top:933px;width:573px">¿Y si agregamos mas palabras y reglas?</button>
+</div>
+<div class="ns dark" id="n-res2" data-bg="#000">
+<div class="bpill" style="left:1308px;top:164px;width:573px">¿Y si agregamos mas palabras y reglas?</div>
+<div class="ab t gp" style="left:127px;top:281px;">Ahi es cuando empiezan a tener “personalidad” y naturalizar su lenguaje.<br>En una prueba de 1972, 33 psiquiatras tuvieron que distinguir entre transcripciones de<br>personas reales y PARRY.</div>
+<div class="ab chart" data-chart="2" style="left:325px;top:452px;width:495px;height:341px"></div>
+<div class="ab t gp" style="left:127px;top:827px;">PARRY simulaba el comportamiento de una persona con paranoia mediante un modelo de<br>creencias y estrategias conversacionales.</div>
+<button class="bpill" data-go="n-res3" style="left:831px;top:920px;width:261px">¿Y después que vino?</button>
+</div>
+<div class="ns dark" id="n-res3" data-bg="#000">
+<div class="bpill" style="left:1601px;top:177px;width:261px">¿Y después que vino?</div>
+<div class="ab t gp" style="left:118px;top:274px;">Apareció una nueva idea: ¿y si el chatbot pudiera aprender de las conversaciones que tenía?<br>Jabberwacky empezó online en 1997 con unas 20.000 entradas y alcanzó 1 millón de<br>interacciones en 2003.</div>
+<div class="ab chart" data-chart="3" style="left:113px;top:390px;width:820px;height:377px"></div>
+<div class="ab t gp" style="left:134px;top:814px;">Su creador, Rollo Carpenter, describió justamente la idea como un ciclo de retroalimentación:<br>las conversaciones de hoy ayudaban a construir las de mañana.</div>
+<button class="bpill" data-go="n-res4" style="left:831px;top:920px;width:261px">¿Y en mayor escala?</button>
+</div>
+<div class="ns dark" id="n-res4" data-bg="#000">
+<div class="bpill" style="left:1601px;top:177px;width:261px">¿Y mayor escala?</div>
+<div class="ab t gp" style="left:118px;top:274px;">Más reglas significaban más posibilidades de conversación…<br>Una fuente académica describe a ALICE con más de 40.000 categorías de conocimiento,<br>frente a unas 200 en ELIZA.</div>
+<div class="ab chart" data-chart="4" style="left:124px;top:389px;width:774px;height:367px"></div>
+<button class="bpill" data-go="n-res5" style="left:831px;top:920px;width:261px">¿Y en la actualidad?</button>
+</div>
+<div class="ns dark" id="n-res5" data-bg="#000" data-nograph>
+<div class="bpill" style="left:1601px;top:177px;width:261px">¿Y en la actualidad?</div>
+<div class="ab t gp" style="left:102px;top:263px;">Llegamos a un cambio importante: los chatbots ya no solo buscan una respuesta. Ahora<br>pueden generarla a partir del contexto.</div>
+<div class="ab t gp" style="left:102px;top:347px;">OpenAI señala que alcanzó 1 millón de usuarios en 5 días y 100 millones en 2 meses desde su<br>lanzamiento.</div>
+<div class="ab chart" data-chart="5" style="left:104px;top:451px;width:716px;height:356px"></div>
+<div class="ab t yb" style="left:1098px;top:668px;">Llegamos a la actualidad!<br>Espero que hayas disfrutado el<br>viaje</div>
+<button class="ybtn" data-go="home" style="left:1098px;top:882px;width:470px;height:82px">Volver al inicio.</button>
+<img class="ab " src="assets/nobby/r-res5.png" style="left:1624px;top:799px;" alt="">
+</div>
+<header class="nhead">
+  <button class="nback" data-back aria-label="Volver"><svg viewBox="0 0 83 83" width="83" height="83"><circle cx="41.5" cy="41.5" r="41.5" fill="#000"/><path d="M60 42.5H24M30.5 36L24 42.5 30.5 49" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <img class="navatar" src="assets/nobby/avatar.png" alt="">
+  <span class="nname">Nobby</span>
+  <button class="ngraph" data-go="n-nodos" aria-label="Nodos"><svg viewBox="0 0 83 83" width="83" height="83"><circle cx="41.5" cy="41.5" r="41.5" fill="#fff"/><g stroke="#000" stroke-width="1.4"><path d="M39.3 21L62.5 23.5M39.3 21L18 44.5M39.3 21L42.5 40.5M62.5 23.5L42.5 40.5M62.5 23.5L59.3 60.3M18 44.5L42.5 40.5M18 44.5L35.5 64.5M42.5 40.5L35.5 64.5M42.5 40.5L59.3 60.3M35.5 64.5L59.3 60.3" fill="none"/></g><g fill="#000"><circle cx="42.5" cy="40.5" r="8.8"/><circle cx="39.3" cy="21" r="4.8"/><circle cx="62.5" cy="23.5" r="5.2"/><circle cx="18" cy="44.5" r="5.2"/><circle cx="35.5" cy="64.5" r="5.2"/><circle cx="59.3" cy="60.3" r="5.5"/></g></svg></button>
+</header>
+</div>
+</section>
+
+<script src="js/app.js"></script>
+</body>
+</html>
